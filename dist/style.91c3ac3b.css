@@ -1,0 +1,159 @@
+/*VARS**********************************************************************/
+@font-face {
+  font-family: "Retro";
+  src: url(/retro.15bd6c5d.otf) format("opentype"); }
+
+body {
+  background-color: #9bceb5;
+  font-family: "Retro";
+  padding: 1em; }
+
+.pageTitle {
+  color: #fff6e9;
+  font-size: 50px;
+  display: block;
+  text-align: center;
+  margin-bottom: 25px; }
+
+.game-board {
+  display: block;
+  max-width: 400px;
+  margin: auto;
+  border-collapse: collapse; }
+  .game-board.game-finished, .game-board.game-ended {
+    pointer-events: none; }
+
+.game-board-row {
+  display: grid;
+  grid-template-columns: 33% 33% 33%; }
+
+.game-board-field {
+  border: 10px solid #fff6e9;
+  margin: auto;
+  width: 100%;
+  aspect-ratio: 1;
+  display: table;
+  margin: -5px; }
+
+.game-board--field__score {
+  display: table-cell;
+  width: 100%;
+  height: 100%; }
+
+.game-board--field__score[value="1"] {
+  background-color: rgba(255, 246, 233, 0.8); }
+
+.game-board--field__score[value="2"] {
+  background-color: #b85c3c; }
+
+.game-board.player-turn-one .game-board--field__score[value="0"]:hover {
+  background-color: rgba(255, 246, 233, 0.3); }
+
+.game-board.player-turn-two .game-board--field__score[value="0"]:hover {
+  background-color: rgba(184, 92, 60, 0.7); }
+
+.player-turn {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 35px;
+  color: #fff6e9; }
+  .player-turn .player-turn__player {
+    border: 10px solid transparent; }
+    .player-turn .player-turn__player.player-turn__player-two {
+      color: #b85c3c; }
+
+.player-turn__area {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center; }
+
+.player-turn[value="1"] .player-turn__player-one {
+  border: 10px solid #fff6e9; }
+
+.player-turn[value="2"] .player-turn__player-two {
+  border: 10px solid #b85c3c; }
+
+.player-turn__player {
+  width: 25px; }
+
+.menu-area {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: #9bceb5;
+  border: 10px solid #fff6e9;
+  max-width: 230px;
+  max-height: 170px; }
+  .menu-area .info-wrapper {
+    width: 100%;
+    display: block;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center; }
+  .menu-area.hidden {
+    display: none; }
+
+.player-winner {
+  font-family: "Retro";
+  font-size: 35px;
+  color: #fff6e9;
+  margin-bottom: 20px;
+  display: block; }
+  .player-winner.player-two__winner {
+    color: #b85c3c; }
+
+.btn {
+  background-color: transparent;
+  border: none;
+  font-family: "Retro";
+  font-size: 30px;
+  display: block;
+  color: #fff6e9; }
+  .btn.btn__open-menu {
+    margin: auto;
+    margin-top: 15px; }
+  .btn.btn__close-menu {
+    display: block;
+    position: absolute;
+    margin-left: 0;
+    right: 0;
+    top: 0; }
+  .btn.btn__restart {
+    margin: auto; }
+
+.madeBy {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding: 5px;
+  background-color: #79BEA6;
+  color: #fff6e9;
+  text-decoration: none; }
+
+/*MEDIA QUERIES*************************************************************************************/
+@media (min-width: 768px) {
+  .pageTitle {
+    font-size: 100px; }
+  .player-turn {
+    font-size: 50px; }
+  .player-turn__player {
+    width: 40px; }
+  .btn {
+    font-size: 35px; }
+  .menu-area {
+    max-width: 500px;
+    max-height: 300px; }
+  .player-winner {
+    font-size: 50px; } }
+
+
+/*# sourceMappingURL=/style.91c3ac3b.css.map */

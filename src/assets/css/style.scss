@@ -1,0 +1,227 @@
+/*VARS**********************************************************************/
+
+
+  $main-color__black:                                         #161514 !default; 
+  $main-color__green:                                         #9bceb5 !default; 
+  $main-color__yellow:                                        #E2CD6D !default; 
+  $main-color__brown:                                         #e5af7d !default; 
+  $main-color__white:                                         #fff6e9 !default;
+  $main-color__cream:                                         rgba($main-color__white,.8) !default; 
+  $main-color__red:                                           #b85c3c !default; 
+
+  $main-color__black--hover:                                  rgba($main-color__black,.3) !default; 
+  $main-color__green--hover:                                  rgba($main-color__green,.3)!default; 
+  $main-color__yellow--hover:                                 rgba($main-color__yellow,.3) !default; 
+  $main-color__brown--hover:                                  rgba($main-color__brown,.3) !default; 
+  $main-color__white--hover:                                  rgba($main-color__white,.3) !default; 
+  $main-color__red--hover:                                    rgba($main-color__red,.7) !default; 
+
+  $font-size__large:                                          100px !default; 
+  $font-size__medium:                                         50px !default; 
+  $font-size__small:                                          35px !default;
+  $font-size__large-mobile:                                   50px !default; 
+  $font-size__medium-mobile:                                  35px !default; 
+  $font-size__small-mobile:                                   30px !default; 
+
+  $breakpoint-tablet:                                         768px !default;
+
+
+@font-face {
+  font-family: "Retro";
+  src: url(../font/retro.otf) format('opentype');
+}
+
+body{
+  background-color: $main-color__green;
+  font-family:"Retro";
+  padding: 1em;
+}
+
+.pageTitle{
+  color: $main-color__white;
+  font-size: $font-size__large-mobile;
+  display: block;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.game-board{
+  display: block;
+    max-width: 400px;
+    margin: auto;
+    border-collapse: collapse;
+
+    &.game-finished,&.game-ended{
+      pointer-events: none;
+    }
+}
+.game-board-row{
+  
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+.game-board-field{
+  border: 10px solid $main-color__white;
+  margin: auto;
+  width: 100%;
+  aspect-ratio: 1;
+  display: table;
+  margin: -5px;
+
+}
+.game-board--field__score{
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+}
+.game-board--field__score[value="1"]{
+  background-color: $main-color__cream;
+}
+.game-board--field__score[value="2"]{
+  background-color: $main-color__red;
+}
+.game-board.player-turn-one{
+  .game-board--field__score[value="0"]:hover{
+    background-color: $main-color__white--hover;
+  }
+}
+.game-board.player-turn-two{
+  .game-board--field__score[value="0"]:hover{
+    background-color: $main-color__red--hover;
+  }
+}
+
+.player-turn{
+  text-align: center;
+  margin-top: 25px;
+  font-size: $font-size__medium-mobile;
+  color: $main-color__white;
+
+  .player-turn__player{
+    border: 10px solid transparent;
+
+    &.player-turn__player-two{
+      color: $main-color__red;
+    }
+  }
+
+}
+.player-turn__area{
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+.player-turn[value="1"]{
+  .player-turn__player-one{
+    border: 10px solid $main-color__white;
+  }
+}
+.player-turn[value="2"]{
+  .player-turn__player-two{
+    border: 10px solid $main-color__red;
+  }
+}
+.player-turn__player{
+  width: 25px;
+}
+
+.menu-area{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: $main-color__green;
+  border: 10px solid $main-color__white;
+  max-width: 230px;
+  max-height: 170px;
+
+  .info-wrapper{
+    width: 100%;
+    display: block;
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  }
+
+  
+  &.hidden{
+    display: none;
+  }
+}
+.player-winner{
+  font-family:"Retro";
+  font-size: $font-size__medium-mobile;
+  color: $main-color__white;
+  margin-bottom: 20px;
+  display: block;
+
+  &.player-two__winner{
+    color: $main-color__red;
+  }
+}
+
+.btn{
+  background-color: transparent;
+  border: none;
+  font-family:"Retro";
+  font-size: $font-size__small-mobile;
+  display: block;
+  color: $main-color__white;
+
+  &.btn__open-menu{
+    margin: auto;
+    margin-top: 15px;
+  }
+  &.btn__close-menu{
+    display: block;
+    position: absolute;
+    margin-left: 0;
+    right: 0;
+    top: 0;
+  }
+  &.btn__restart{
+    margin: auto;
+  }
+}
+
+.madeBy{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding: 5px;
+  background-color: #79BEA6;
+  color: $main-color__white;
+  text-decoration: none;
+}
+
+/*MEDIA QUERIES*************************************************************************************/
+
+@media (min-width: $breakpoint-tablet) {
+  .pageTitle{
+    font-size: $font-size__large;
+  }
+  .player-turn{
+    font-size: $font-size__medium;
+  }
+  .player-turn__player{
+    width: 40px;
+  }
+  .btn{
+    font-size: $font-size__small;
+  }
+  .menu-area{
+    max-width: 500px;
+  max-height: 300px;
+  }
+  .player-winner{
+    font-size: $font-size__medium;
+  }
+}
